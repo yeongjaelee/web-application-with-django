@@ -660,6 +660,8 @@ nav {
 ====================*/
 
 footer {
+    position:fixed; 
+    bottom:0; 
     color: #ffffff;
     padding-top: 40px;
     background-image: url('../images/footer-bg-image.jpg');
@@ -674,6 +676,7 @@ footer .footer-top {
 }
 
 footer .footer-bottom {
+    
     padding-top: 30px;
     padding-bottom: 10px;
     text-align: center;

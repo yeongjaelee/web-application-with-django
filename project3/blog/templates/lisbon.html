@@ -1,13 +1,14 @@
 <!doctype html>
 <html lang="en">
-
+    {% block content %}
+    {% load static %}
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Clickaholic</title>
+    <title>contact</title>
     {% load static %}
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -24,8 +25,8 @@
     <!--Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark cyan fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-            <img src="{% static 'images/nav-logo.png' %}" alt="nav-logo">
+            <a class="navbar-brand" href="{% url 'index' %}">
+            <strong>yeongjae's record</strong>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -33,198 +34,71 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="gallery.html">gallery <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'about' %}">Travel</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blog.html">Read my blog </a>
+                        <a class="nav-link" href="{% url 'lisbon' %}">lisbon </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">contact </a>
+                        <a class="nav-link" href="{% url 'skills' %}">skills </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">contact </a>
+                    </li>
+                   
                 </ul>
             </div>
         </div>
     </nav>
 
     <!--/.Navbar -->
-    <!-- Portfolio-Section -->
-    <section class="gallery-page">
-        <div class="container">
-            <h2>Recently Added Photographs</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-12 col-12">
-                    <div class="row">
-                        <a href="https://unsplash.it/1200/768.jpg?image=251" data-toggle="lightbox" data-gallery="example-gallery" class="col-xl-6 col-md-4 box-1">
-                          <img src="https://unsplash.it/600.jpg?image=251" class="img-fluid">
-                            <div class="overlay">
-                             <img src="{% static 'images/comment.png' %}" alt="plus-icon">
-                              <div class="text">Man standing on the middle of the road in the morning <span>Landscapes</span></div>
-                              <div class="count">45</div>
-                            </div>
-                        </a>
-                        <a href="https://unsplash.it/1200/768.jpg?image=252" data-toggle="lightbox" data-gallery="example-gallery" class="col-xl-3 col-md-4 box-2">
-                         <img src="https://unsplash.it/600.jpg?image=252" class="img-fluid">
-                           <div class="overlay">
-                            <img src="{% static 'images/comment.png' %}" alt="plus-icon">
-                             <div class="text">Man standing on the middle of the road in the morning <span>Landscapes</span></div>
-                              <div class="count">45</div>
-                           </div>
-                        </a>
-                        <a href="https://unsplash.it/1200/768.jpg?image=253" data-toggle="lightbox" data-gallery="example-gallery" class="col-xl-3 col-md-4 box-2">
-                         <img src="https://unsplash.it/600.jpg?image=253" class="img-fluid">
-                           <div class="overlay">
-                            <img src="{% static 'images/comment.png' %}" alt="plus-icon">
-                             <div class="text">Man standing on the middle of the road in the morning <span>Landscapes</span></div>
-                             <div class="count">45</div>
-                           </div>
-                        </a>
-                    </div>
-                    <div class="row">
-                        <a href="https://unsplash.it/1200/768.jpg?image=254" data-toggle="lightbox" data-gallery="example-gallery" class="col-xl-3 col-md-4 box-2">
-                          <img src="https://unsplash.it/600.jpg?image=254" class="img-fluid">
-                            <div class="overlay">
-                             <img src="{% static 'images/comment.png' %}" alt="plus-icon">
-                              <div class="text">Man standing on the middle of the road in the morning <span>Landscapes</span></div>
-                              <div class="count">45</div>
-                            </div>
-                        </a>
-                        <a href="https://unsplash.it/1200/768.jpg?image=255" data-toggle="lightbox" data-gallery="example-gallery" class="col-xl-3 col-md-4 box-2">
-                         <img src="https://unsplash.it/600.jpg?image=255" class="img-fluid">
-                           <div class="overlay">
-                            <img src="{% static 'images/comment.png' %}" alt="plus-icon">
-                             <div class="text">Man standing on the middle of the road in the morning <span>Landscapes</span></div>
-                              <div class="count">45</div>
-                           </div>
-                        </a>
-                        <a href="https://unsplash.it/1200/768.jpg?image=256" data-toggle="lightbox" data-gallery="example-gallery" class="col-xl-6 col-md-4 box-1">
-                         <img src="https://unsplash.it/600.jpg?image=256" class="img-fluid">
-                           <div class="overlay">
-                            <img src="{% static 'images/comment.png' %}" alt="plus-icon">
-                             <div class="text">Man standing on the middle of the road in the morning <span>Landscapes</span></div>
-                             <div class="count">45</div>
-                           </div>
-                        </a>
-                    </div>
-                    <div class="row">
-                        <a href="https://unsplash.it/1200/768.jpg?image=257" data-toggle="lightbox" data-gallery="example-gallery" class="col-xl-6 col-md-4 box-1">
-                          <img src="https://unsplash.it/600.jpg?image=257" class="img-fluid">
-                            <div class="overlay">
-                             <img src="{% static 'images/comment.png' %}" alt="plus-icon">
-                              <div class="text">Man standing on the middle of the road in the morning <span>Landscapes</span></div>
-                              <div class="count">45</div>
-                            </div>
-                        </a>
-                        <a href="https://unsplash.it/1200/768.jpg?image=258" data-toggle="lightbox" data-gallery="example-gallery" class="col-xl-3 col-md-4 box-2">
-                         <img src="https://unsplash.it/600.jpg?image=258" class="img-fluid">
-                           <div class="overlay">
-                            <img src="{% static 'images/comment.png' %}" alt="plus-icon">
-                             <div class="text">Man standing on the middle of the road in the morning <span>Landscapes</span></div>
-                              <div class="count">45</div>
-                           </div>
-                        </a>
-                        <a href="https://unsplash.it/1200/768.jpg?image=259" data-toggle="lightbox" data-gallery="example-gallery" class="col-xl-3 col-md-4 box-2">
-                         <img src="https://unsplash.it/600.jpg?image=259" class="img-fluid">
-                           <div class="overlay">
-                            <img src="{% static 'images/comment.png' %}" alt="plus-icon">
-                             <div class="text">Man standing on the middle of the road in the morning <span>Landscapes</span></div>
-                             <div class="count">45</div>
-                           </div>
-                        </a>
-                    </div>
-                    <div class="row">
-                        <a href="https://unsplash.it/1200/768.jpg?image=254" data-toggle="lightbox" data-gallery="example-gallery" class="col-xl-3 col-md-4 box-2">
-                          <img src="https://unsplash.it/600.jpg?image=254" class="img-fluid">
-                            <div class="overlay">
-                             <img src="{% static 'images/comment.png' %}" alt="plus-icon">
-                              <div class="text">Man standing on the middle of the road in the morning <span>Landscapes</span></div>
-                              <div class="count">45</div>
-                            </div>
-                        </a>
-                        <a href="https://unsplash.it/1200/768.jpg?image=255" data-toggle="lightbox" data-gallery="example-gallery" class="col-xl-3 col-md-4 box-2">
-                         <img src="https://unsplash.it/600.jpg?image=255" class="img-fluid">
-                           <div class="overlay">
-                            <img src="{% static 'images/comment.png' %}" alt="plus-icon">
-                             <div class="text">Man standing on the middle of the road in the morning <span>Landscapes</span></div>
-                              <div class="count">45</div>
-                           </div>
-                        </a>
-                        <a href="https://unsplash.it/1200/768.jpg?image=256" data-toggle="lightbox" data-gallery="example-gallery" class="col-xl-6 col-md-4 box-1">
-                         <img src="https://unsplash.it/600.jpg?image=256" class="img-fluid">
-                           <div class="overlay">
-                            <img src="{% static 'images/comment.png' %}" alt="plus-icon">
-                             <div class="text">Man standing on the middle of the road in the morning <span>Landscapes</span></div>
-                             <div class="count">45</div>
-                           </div>
-                        </a>
-                    </div>
-                </div>
+    <!-- Blog-Section -->
+<div class="support">
+  <div class="container">
+    <div class="container">
+        
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}  
+            <button type="submit" class="btn btn-lg btn-success">Upload</button>
+        </form>   
+       
+            {% if obj %}
+            <h3>Succesfully uploaded : {{img_obj.caption}}</h3>
+            <img src="{{ obj.image.url}}" alt="image" class="img-thumbnail" height="70%" width="70%">
+            {% endif %}
+            {% for x in img %}
+            {% if forloop.first %}<div class="row ">{% endif %}
+            <div class="col-lg-4 col-md-4 col-12" >
+            <div class="text-center mt-2">
+            <img src="{{x.image.url}}" height="70%" width="70%" class="img-thumbnail" alt="...">
+            <h2 class="text-center" >{{x.caption}}</h2></div>
             </div>
-            <div class="row bt">
-                <div class="col-sm-12">
-                    <ul>
-                        <li><a class="active" href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                    </ul>
-                </div>
+            {% if forloop.counter|divisibleby:3 %}
             </div>
-        </div>
-    </section>
+            <div class=row>{% endif %}
+                {% if forloop.last %}</div>{% endif %}
+    {% endfor %}
+    </div>
+
+{% endblock %}
+<!-- Support section Ended -->
     <!--/.Portfolio-Section -->
     <!-- Footer -->
     <footer>
-        <section class="footer-top">
-            <!--Container-->
-            <div class="container">
-                <h2>My Flickr Feed</h2>
-                <div class="row text-center text-lg-left">
-                    <div class="col-lg-2 col-md-4 col-xs-6">
-                        <a href="#" class="d-block h-100"><img class="img-fluid img-thumbnail" src="{% static 'images/banner-image-1.jpg' %}" alt=""></a>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-xs-6">
-                        <a href="#" class="d-block h-100"><img class="img-fluid img-thumbnail" src="{% static 'images/banner-image-2.jpg' %}" alt=""></a>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-xs-6">
-                        <a href="#" class="d-block h-100"><img class="img-fluid img-thumbnail" src="{% static 'images/banner-image-3.jpg' %}" alt=""></a>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-xs-6">
-                        <a href="#" class="d-block h-100"><img class="img-fluid img-thumbnail" src="{% static 'images/banner-image-4.jpg' %}" alt=""></a>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-xs-6">
-                        <a href="#" class="d-block h-100"><img class="img-fluid img-thumbnail" src="{% static 'images/banner-image-2.jpg' %}" alt=""></a>
-                    </div>
-                    <div class="col-lg-2 col-md-4 col-xs-6">
-                        <a href="#" class="d-block h-100"><img class="img-fluid img-thumbnail" src="{% static 'images/banner-image-1.jpg' %}" alt=""></a>
-                    </div>
-                </div>
-
-            </div>
-            <!-- /.container -->
-        </section>
         <section class="footer-bottom">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li class="hidden">/</li>
-                            <li><a href="about.html">About-us</a></li>
-                            <li class="hidden">/</li>
-                            <li><a href="mystories.html">My stories</a></li>
-                            <li class="hidden">/</li>
-                            <li><a href="destinations.html">Destinations</a></li>
-                            <li class="hidden">/</li>
-                            <li><a href="gallery.html">Gallery</a></li>
-                            <li class="hidden">/</li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a></li>
+                            <li><a class="nav-link" href="{% url 'about' %}">Travel</a></li>
+                            <li><a class="nav-link" href="{% url 'lisbon' %}">lisbon </a></li>
+                            <li><a class="nav-link" href="{% url 'skills' %}">skills </a></li>
+                            <li><a class="nav-link" href="{% url 'contact' %}">contact </a></li>
                         </ul>
                     </div>
                     <div class="col-md-12">
@@ -256,3 +130,6 @@
 </body>
 
 </html>
+
+
+

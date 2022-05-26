@@ -1,89 +1,128 @@
-{% block content %}
-{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>contact</title>
+    {% load static %}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700|Playfair+Display:400,700,900" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+</head>
+
+<body>
+    <!--Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark cyan fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'index' %}">
+            <strong>yeongjae's record</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">Travel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'lisbon' %}">lisbon </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'skills' %}">skills </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">contact </a>
+                    </li>
+                   
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--/.Navbar -->
+    <!-- Blog-Section -->
+<div class="support">
+  <div class="container">
+    {% block content %}
+    {% load static %}
         <!-- Home Content -->
         <div id="content" class="site-content">
             <div id="blog-wrapper">
                 <div class="blog-holder center-relative">
                     {% for post in post_latest %}
-                        {% if forloop.first %}
                         <article id="post-1" class="blog-item-holder featured-post">
                             <div class="entry-content relative">
                                 <div class="content-1170 center-relative">
-                                    <div class="cat-links">
-                                        <ul>
-                                            <li>
-                                                <a href="#">
-                                                    <!-- 일상,정보 -->
-                                                    {% for c in post.category.all %}
-                                                        {{ c }}
-                                                        {% if not forloop.last %}
-                                                            ,
-                                                        {% endif %}
-                                                    {% endfor %}
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="entry-date published">{{ post.createDate }}</div>
-                                    {% if post.title_image%}
-                                    <div class="post-full-width">
-                                        <img src="{{ post.title_image.url}}" alt="">
-                                    </div>
-                                    {% endif %}
                                     <h2 class="entry-title">
-                                        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                                        <a href="{{ post.get_absolute_url }}">{{ post.title }}<br><br></a>
                                     </h2>
-                                    <div class="excerpt">
-                                        {% if post.is_content_more300 %}
-                                            {{ post.get_content_under300 }}
-                                        {% else %}
-                                            {{ post.content }}
-                                        {% endif %}
-                                        <a class="read-more" href="{{ post.get_absolute_url }}"></a>
-                                    </div>
-                                    <div class="clear"></div>
                                 </div>
                             </div>
                         </article>
-                        {% else %}
-                        <article id="post-{{ forloop.counter }}" class="blog-item-holder">
-                            <div class="entry-content relative">
-                                <div class="content-1170 center-relative">
-                                    <h2 class="entry-title">
-                                        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-                                    </h2>
-                                    <div class="cat-links">
-                                        <ul>
-                                            <li>
-                                                <a href="#">
-                                                    {% for c in post.category.all %}
-                                                    {{ c }}
-                                                    {% if not forloop.last %}
-                                                        ,
-                                                    {% endif %}
-                                                    {% endfor %}
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="entry-date published">{{ post.createDate }}</div>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
-                        </article>
-                        {% endif %}
                     {% endfor %}
-
                 </div>
-                <div class="clear"></div>
-                <div class="block load-more-holder">LOAD MORE ENTRIES</div>
             </div>
-
-            <div class="featured-image-holder">
-                
-
-            </div>
-            <div class="clear"></div>
         </div>
-        
-{% endblock %}
+    {% endblock %}    
+    </div>
+</div> 
+    
+<!-- Support section Ended -->
+    <!--/.Portfolio-Section -->
+    <!-- Footer -->
+    <footer>
+        <section class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul>
+                            <li><a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a></li>
+                            <li><a class="nav-link" href="{% url 'about' %}">Travel</a></li>
+                            <li><a class="nav-link" href="{% url 'lisbon' %}">lisbon </a></li>
+                            <li><a class="nav-link" href="{% url 'skills' %}">skills </a></li>
+                            <li><a class="nav-link" href="{% url 'contact' %}">contact </a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12">
+                        <p>(C) All Rights Reserved <a href="https://www.template.net/editable/websites/html5" target="_blank">ClickaHolic</a> <span>/</span> Designed and Developed by <a href="https://www.template.net/editable/websites/html5" target="_blank">Template.net</a></p>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container -->
+        </section>
+    </footer>
+    <!-- /.Footer -->
+    <!-- Return to Top -->
+    <a href="javascript:" id="return-to-top"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="{% static 'js/animate.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script>
+        $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+            event.preventDefault();
+            $(this).ekkoLightbox();
+        });
+    </script>
+</body>
+
+</html>

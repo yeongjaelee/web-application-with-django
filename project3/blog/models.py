@@ -1,6 +1,9 @@
+
+from email.policy import default
 from django.db import models
 from django.urls import reverse
 # Create your models here.
+
 
 class Category(models.Model):
     name = models.CharField(max_length=50, help_text="blog classification")
@@ -15,6 +18,7 @@ class Post(models.Model):
     createDate = models.DateTimeField(auto_now_add=True)
     updateDate = models.DateField(auto_now_add=True)
     category = models.ManyToManyField(Category, help_text="post's classification")
+    
 
     def __str__(self):
         return self.title
@@ -27,3 +31,9 @@ class Post(models.Model):
 
     def get_content_under300(self):
         return self.content[:300]
+
+class Image(models.Model):
+    caption=models.CharField(max_length=100)
+    image=models.ImageField(upload_to="image/")
+    def __str__(self):
+        return self.caption
