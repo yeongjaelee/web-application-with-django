@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
-    {% block content %}
-    {% load static %}
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -51,44 +50,39 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'login' %}">login </a>
                     </li>
-                
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'signup' %}">signup </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-
     <!--/.Navbar -->
     <!-- Blog-Section -->
-<div class="support">
-  <div class="container">
-    <div class="container">
-        
-        <form method="post" enctype="multipart/form-data">
+    {% block contents %}
+    
+    <div class="container" style="position:absolute;top:30%;left:40%">
+        <h1>sign up!</h1>
+    
+        <form method="POST" action="{%url 'signup'%}">
             {% csrf_token %}
-            {{form.as_p}}  
-            <button type="submit" class="btn btn-lg btn-success">Upload</button>
-        </form>   
-       
-            {% if obj %}
-            <h3>Succesfully uploaded : {{img_obj.caption}}</h3>
-            <img src="{{ obj.image.url}}" alt="image" class="img-thumbnail" height="70%" width="70%">
-            {% endif %}
-            {% for x in img %}
-            {% if forloop.first %}<div class="row ">{% endif %}
-            <div class="col-lg-4 col-md-4 col-12" >
-            <div class="text-center mt-2">
-            <img src="{{x.image.url}}" height="70%" width="70%" class="img-thumbnail" alt="...">
-            <h2 class="text-center" >{{x.caption}}</h2></div>
-            </div>
-            {% if forloop.counter|divisibleby:3 %}
-            </div>
-            <div class=row>{% endif %}
-                {% if forloop.last %}</div>{% endif %}
-    {% endfor %}
+            <br>
+            Username:
+            <br>
+            <input name="username" type="text">
+            <br>
+            Password:
+            <br>
+            <input name="password1" type="password">
+            <br>
+            Confirm Password:
+            <br>
+            <input name="password2" type="password">
+            <br><br>
+            <input type="submit" class="btn btn-primary" value="sign up">
+        </form>
     </div>
-
-{% endblock %}
-
+    {% endblock %}
 
     <!-- Return to Top -->
     <a href="javascript:" id="return-to-top"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
@@ -110,6 +104,3 @@
 </body>
 
 </html>
-
-
-
