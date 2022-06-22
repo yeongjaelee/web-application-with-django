@@ -4,7 +4,7 @@ from django.shortcuts import render,redirect
 from .models import Category,Post,Image
 from django.views import generic
 from django.contrib.auth.models import User
-from django.contrib import auth
+from django.contrib import auth,messages
 
 # Create your views here.
 def Image_index(request):
@@ -58,9 +58,11 @@ def login(req):
         user = auth.authenticate(req, username=username, password=password)
         if user is not None:
             auth.login(req,user)
+            messages.success(req,'login success!!')
             return redirect("index")
         else:
-            return render(req,"login.html",{'error':'username or password is incorrect'})
+            messages.error(req,'login fail!!')
+            return render(req,"login.html")
     
     else:
         return render(req,'login.html')
@@ -75,8 +77,8 @@ def signup(req):
             user = User.objects.create_user(
                 username = req.POST["username"], password = req.POST["password1"])
             auth.login(req,user)
-        return render(req,'signup.html')
-    
+            messages.success(req,'succeed to create the account!!')
+        return render(req,'index.html')
     return render(req,'signup.html')
 
                 

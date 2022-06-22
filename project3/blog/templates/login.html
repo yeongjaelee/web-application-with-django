@@ -50,6 +50,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'login' %}">login </a>
                     </li>
+                  
                 </ul>
             </div>
         </div>
@@ -59,8 +60,9 @@
     {% block contents %}
     
     <div class="container"style="position:absolute;top:30%;left:40%">
+        {% include 'message.html'%}
         <h1>Log in!</h1>
-    
+        
         <form method="POST" action="{% url 'login'%}">
             {% csrf_token %}
             <br>
